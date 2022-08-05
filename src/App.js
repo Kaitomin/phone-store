@@ -4,11 +4,12 @@ import { Navbar, ProductList, Details, Cart, Default } from './components'
 import { Routes, Route, Link } from 'react-router-dom'
 import { ProductContext } from './context/ProductContext'
 import { storeProducts, detailProduct } from './data'
+import { ProductProvider } from './context/ProductContext'
 
 function App() {
   return (
     <>
-      <ProductContext.Provider value={{products: JSON.parse(JSON.stringify(storeProducts)), detailProduct}}>
+      <ProductProvider> 
         <Navbar />
         <Routes>
           <Route path='/' element={<ProductList />} />
@@ -16,7 +17,7 @@ function App() {
           <Route path='/cart' element={<Cart />} />
           <Route path='/*' element={<Default />} />
         </Routes>
-      </ProductContext.Provider>
+      </ProductProvider>
     </>
   );
 }
