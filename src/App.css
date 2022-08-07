@@ -8,11 +8,10 @@
 
 body {
   font-family: 'Oswald', sans-serif;
-  /* font-family: 'Permanent Marker', cursive; */
   color: var(--mainDark) !important
 }
 .text-title {
-  font-family: 'Permanent Marker', cursive;
+  font-family: 'PT Sans', sans-serif;
   letter-spacing: 0.3rem;
   text-transform: uppercase;
 }
@@ -22,7 +21,107 @@ body {
 .text-bright {
   color: var(--lightBlue);
 }
+/* Nav */
+#navbar {
+  background: black;
+}
 #navbar .cart-btn {
   background: none;
   border: 1px solid black;
+}
+#navbar ul a {
+  font-size: 1.2em;
+}
+#navbar .cart {
+  border-radius: 100px;
+  width: 50px;
+  height: 50px;
+  background: black;
+  color: white;
+  border: 1px solid white;
+}
+/* Modal */
+.modal-container {
+  position: absolute;
+  top: 0;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  background: white;
+  width: 350px;
+  height: auto;
+  padding: 2em 0;
+  transform: translateY(50%);
+  border: 1px solid black;
+}
+/* Product */
+.item-card {
+  border: 0;
+  box-shadow: 0px 0px 5px #0000002e;
+}
+.item-card:hover {
+  box-shadow: 0px 0px 5px #00000066;
+}
+.item-card:hover .btn-cart {
+  bottom: -75px;
+}
+.product-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  background-color: #00000000;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+  opacity: 0;
+  flex-direction: column;
+  transition: opacity 0.2s ease-in-out, backgroundColor 0.2s ease;
+}
+.item-card:hover .product-overlay {
+  opacity: 1;
+  background-color: #0000000c;
+}
+.product-overlay button,
+.product-overlay a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  background: white;
+  width: 100px;
+  height: 50px;
+  padding: 5px;
+  text-align: center;
+  color: black;
+  text-decoration: none;
+}
+.product-overlay a:visited {
+  /* color: white; */
+}
+.btn-cart {
+  background: black;
+  border: none;
+  color: white;
+  position: absolute;
+  bottom: -155px;
+  right: -70px;
+  border-radius: 100px;
+  font-size: 2em;
+  width: 150px;
+  height: 150px;
+  transition: bottom 0.2s ease-in-out;
+}
+.card-footer {
+  background: black;
+  color: white;
+}
+.fa-cart-plus {
+  position: absolute;
+  top: 33px;
+  left: 33px;
 }

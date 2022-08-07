@@ -6,9 +6,9 @@ import { Link, useParams } from 'react-router-dom'
 const Details = () => {
   const params = useParams()
 
-  const { handleDetail, addToCart } = useProduct()
+  const { getItem, addToCart } = useProduct()
 
-  const { id, company, img, info, price, title, inCart } = handleDetail(params.id)
+  const { id, company, img, info, price, title, inCart } = getItem(+params.id)
 
   return (
     <div className='container py-5'>

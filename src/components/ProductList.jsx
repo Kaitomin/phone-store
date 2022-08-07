@@ -18,8 +18,6 @@ const ProductList = () => {
           </div>
         </div>
       </div>
-
-      <Product />
     </>
   )
 }
