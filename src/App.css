@@ -79,6 +79,7 @@ body {
   align-items: center;
   gap: 35px;
   opacity: 0;
+  /* opacity: 1; */
   flex-direction: column;
   transition: opacity 0.2s ease-in-out, backgroundColor 0.2s ease;
 }
@@ -89,16 +90,16 @@ body {
 .product-overlay button,
 .product-overlay a {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   border: 1px solid black;
-  background: white;
+  background: rgba(255, 255,255, 0.9);
   width: 100px;
-  height: 50px;
-  padding: 5px;
+  height: 40px;
   text-align: center;
   color: black;
   text-decoration: none;
+  border-radius: 5px;
 }
 .product-overlay a:visited {
   /* color: white; */
@@ -120,8 +121,56 @@ body {
   background: black;
   color: white;
 }
-.fa-cart-plus {
-  position: absolute;
-  top: 33px;
-  left: 33px;
+/* Product details */
+.details .price {
+  background: white;
+  padding: 0.7rem 1rem;
+  color: black;
+  border: 1px solid black;
+  width: fit-content;
+}
+.details .actions a,
+.details .actions button {
+  border: 1px solid black;
+  background: black;
+  text-decoration: none;
+  color: white;
+  padding: 10px 15px;
+  transition: background 0.2s ease-in, color 0.2s ease-in;
+}
+.details .actions a:hover,
+.details .actions button:hover {
+  background: white;
+  color: black;
+}
+.details .info {
+  font-size: 1.1rem;
+  margin: 1rem 0 0 0;
+}
+.details .quantity-container button {
+  border: 1px solid black;
+  background: transparent;
+  height: 30px;
+  width: 30px;
+}
+.details .quantity-container label {
+  font-size: 1.1em;
+}
+.details .quantity-container input {
+  width: 50px;
+  height: 30px;
+  text-align: center;
+}
+.details .quantity-container input::-webkit-outer-spin-button,
+.details .quantity-container input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.details .quantity-container input[type=number]{
+  -moz-appearance: textfield;
+}
+/* Cart */
+.cart-container .quantity span:nth-child(2) {
+  border: 0;
+  outline: 0;
 }

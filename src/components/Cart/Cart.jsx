@@ -11,7 +11,7 @@ const Cart = () => {
   return (
     cart.length <= 0 ? 
     <EmptyCart /> :
-    <div>
+    <div className='cart-container'>
       <Title name='Your' title='cart' />
       <CartColumns />
       <CartList cart={cart} />

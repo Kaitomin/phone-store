@@ -12,26 +12,10 @@ const Product = (product) => {
       <div className="card item-card">
 
         <div className="img-container p-3 position-relative overflow-hidden">
-          
-            <img src={img} alt='product' className='card-img-top' />
-          
-          {/* <button 
-            className='btn-cart' 
-            disabled={inCart ? true : false} 
-            onClick={() => {
-              addToCart(id)
-              openModal(id)
-            }}
-          >
-            {
-              inCart ? 
-              <p className='text-capitalize mb-0' disabled>Already in cart</p> : 
-              <i className="fa-solid fa-cart-plus"></i>
-            }
-          </button> */}
+          <img src={img} alt='product' className='card-img-top' />
           <div className='product-overlay'>
-          <Link to={`/details/${id}`}>View</Link>
-            <button>Add to cart</button>
+          <Link to={`/details/${id}`}><i className="fa-solid fa-magnifying-glass"></i>View</Link>
+          <button onClick={() => addToCart(id)}><i className="fa-solid fa-cart-plus"></i>Add</button>
           </div>
         </div>
 

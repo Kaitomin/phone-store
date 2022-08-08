@@ -20,15 +20,31 @@ export const ProductProvider = ({ children }) => {
   const getItem = id => {
     return products.find(item => item.id === id)
   }
-  const addToCart = id => {
+  const addToCart = (id, quantity = 1) => {
     const product = products[products.indexOf(getItem(id))]
 
-    product.inCart = true
-    product.count += 1
-    product.total = +product.price * +product.count
+    const productInCart = cart.find(item => item.id === product.id)
 
-    setProducts(products) 
-    setCart([...cart, product])
+    if (!productInCart) {
+      product.inCart = true
+      product.count += quantity
+      product.total = +product.price * +product.count
+  
+      setProducts(products) 
+      setCart([...cart, product])
+    } else {
+      productInCart.count += quantity
+      productInCart.total = +productInCart.price * +productInCart.count
+
+      setCart([...cart])
+    }
+
+    // product.inCart = true
+    // product.count += 1
+    // product.total = +product.price * +product.count
+
+    // setProducts(products) 
+    // setCart([...cart, product])
   }
   const openModal = id => {
     const product = getItem(id)
@@ -92,8 +108,9 @@ export const ProductProvider = ({ children }) => {
   }
   const calcTotal = () => {
     let subTotal = 0
+
     cart.map(item => subTotal += item.total)
-    console.log('leCart', cart)
+    console.log('user-cart', cart)
 
     const tax = parseFloat((subTotal * 0.2).toFixed(2))
     const total = subTotal + tax
