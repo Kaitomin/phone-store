@@ -8,20 +8,22 @@ const Product = (product) => {
   const { addToCart, openModal } = useProduct()
 
   return (
-    <div className='product-container col-9 mx-auto col-md-4 col-lg-3 my-3'>
+    <div className='product-container col-9 col-md-4 col-lg-2 my-3'>
       <div className="card item-card">
 
         <div className="img-container p-3 position-relative overflow-hidden">
           <img src={img} alt='product' className='card-img-top' />
           <div className='product-overlay'>
           <Link to={`/details/${id}`}><i className="fa-solid fa-magnifying-glass"></i>View</Link>
-          <button onClick={() => addToCart(id)}><i className="fa-solid fa-cart-plus"></i>Add</button>
+          <button onClick={() => {addToCart(id); openModal()}}>
+            <i className="fa-solid fa-cart-plus"></i>Add
+          </button>
           </div>
         </div>
 
         <div className="card-footer d-flex justify-content-between">
-            <p className='align-self-center mb-0'>{title}</p>
-            <h5 className='text-blue font-italic mb-0 text-white'>{price}<span className='mr-1'>€</span></h5>
+          <p className='align-self-center mb-0'>{title}</p>
+          <h5 className='text-blue font-italic mb-0 text-white'>{price}<span className='mr-1'>€</span></h5>
         </div>
       </div>
     </div>

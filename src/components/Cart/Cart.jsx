@@ -6,12 +6,11 @@ import { useProduct } from '../../context/ProductContext'
 
 const Cart = () => {
   const { cart } = useProduct()
-  console.log('cart', cart)
 
   return (
     cart.length <= 0 ? 
     <EmptyCart /> :
-    <div className='cart-container'>
+    <div className='container cart-container'>
       <Title name='Your' title='cart' />
       <CartColumns />
       <CartList cart={cart} />

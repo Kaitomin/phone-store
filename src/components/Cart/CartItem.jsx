@@ -20,9 +20,9 @@ const CartItem = ({item}) => {
       <div className='col-10 mx-auto col-lg-2 my-2 my-lg-0'>
         <div className='d-flex justify-content-center'>
           <div className='quantity'>
-            <span className='btn border border-dark rounded-1' onClick={() => decrementCartItemQuantity(id)}>-</span>
+            <span className='btn border border-dark rounded-1 d-inline-flex align-items-center h-75' onClick={() => decrementCartItemQuantity(id)}>-</span>
             <span className='btn'>{count}</span>
-            <span className='btn border border-dark rounded-1' onClick={() => incrementCartItemQuantity(id)}>+</span>
+            <span className='btn border border-dark rounded-1 d-inline-flex align-items-center h-75' onClick={() => incrementCartItemQuantity(id)}>+</span>
           </div>
         </div> 
       </div>
@@ -31,7 +31,7 @@ const CartItem = ({item}) => {
       </div>
       <div className='col-10 mx-auto col-lg-2'>
         <div className='cart-icon' onClick={() => removeCartItem(id)}>
-          <i className='fa-solid fa-trash'></i>
+          <i className='fa-solid fa-trash text-danger'></i>
         </div>
       </div>
     </div>

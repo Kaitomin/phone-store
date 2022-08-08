@@ -7,7 +7,7 @@ const Details = () => {
   const [quantity, setQuantity] = useState(1)
 
   const params = useParams()
-  const { getItem, addToCart } = useProduct()
+  const { getItem, addToCart, openModal } = useProduct()
   const { id, company, img, info, price, title, inCart } = getItem(+params.id)
 
   const decrementQuantity = () => {
@@ -21,12 +21,31 @@ const Details = () => {
     if (parseInt(e.target.value) <= 0 || isNaN(parseInt(e.target.value))) return
     setQuantity(+e.target.value)
   }
+  const assignThumbnail = e => {
+    const img = document.querySelector('.main-img')
+    const thumbnails = document.querySelectorAll('.thumbnail')
+
+    img.src = e.target.src
+
+    thumbnails.forEach(thumbnail => {
+      if (thumbnail.src === e.target.src) thumbnail.classList.add('border-dark')
+      else thumbnail.classList.remove('border-dark')
+    })
+
+  }
 
   return (
     <div className='details container py-5'>
       <div className='row'>
-        <div className='col-10 mx-auto col-md-6 my-3 d-flex justify-content-center align-items-center'>
-          <img src={`../${img}`} alt={title} className='img-fluid' />  
+        <div className='col-10 mx-auto col-md-6 my-3 d-flex justify-content-center align-items-center flex-column gap-5'>
+          <img src={`../${img}`} alt={title} className='main-img' width='400' height='auto' />
+          <div className='thumbnails d-flex col-12 justify-content-evenly'>
+            <img src='/img/product-3.png' alt='thumbnail' className='thumbnail border border-gray border-dark' width='100' height='auto' onClick={assignThumbnail} />
+            <img src='/img/product-5.png' alt='thumbnail' className='thumbnail border border-gray' width='100' height='auto' onClick={assignThumbnail} />
+            <img src='/img/product-4.png' alt='thumbnail' className='thumbnail border border-gray' width='100' height='auto' onClick={assignThumbnail} />
+            <img src='/img/product-6.png' alt='thumbnail' className='thumbnail border border-gray' width='100' height='auto' onClick={assignThumbnail} />
+            <img src='/img/product-7.png' alt='thumbnail' className='thumbnail border border-gray' width='100' height='auto' onClick={assignThumbnail} />
+          </div>
         </div>
         <div className='col-10 mx-auto col-md-6 my-3 text-capitalize'>
           <h1 className='border-bottom border-dark pb-3'>{title}</h1>
@@ -47,7 +66,7 @@ const Details = () => {
           </div>
           <div className='actions d-flex gap-5'>
             <Link to='/'><i className="fa-solid fa-circle-arrow-left"></i> Back to products</Link>
-            <button onClick={() => addToCart(id, quantity)}>
+            <button onClick={() => {addToCart(id, quantity);openModal()}}>
               <span><i className="fa-solid fa-cart-plus"></i> Add to cart</span>
             </button>
 

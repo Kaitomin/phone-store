@@ -7,7 +7,6 @@ export const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState(JSON.parse(JSON.stringify(storeProducts)))
   const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')) || [])
   const [showModal, setShowModal] = useState(false)
-  const [modalProduct, setModalProduct] = useState({})
   const [cartSubTotal, setCartSubTotal] = useState(0)
   const [cartTotal, setCartTotal] = useState(0)
   const [cartTax, setCartTax] = useState(0)
@@ -38,22 +37,13 @@ export const ProductProvider = ({ children }) => {
 
       setCart([...cart])
     }
-
-    // product.inCart = true
-    // product.count += 1
-    // product.total = +product.price * +product.count
-
-    // setProducts(products) 
-    // setCart([...cart, product])
   }
-  const openModal = id => {
-    const product = getItem(id)
-
+  const openModal = () => {
     setShowModal(true)
-    setModalProduct(product)
-  }
-  const closeModal = () => {
-    setShowModal(false)
+
+    setTimeout(() => {
+      setShowModal(false)
+    }, 2000)
   }
   const incrementCartItemQuantity = id => {
     let tmpCart = [...cart]
@@ -67,7 +57,6 @@ export const ProductProvider = ({ children }) => {
     product.total = +product.price * +product.count
 
     setCart(tmpCart)
-
   }
   const decrementCartItemQuantity = id => {
     let tmpCart = [...cart]
@@ -110,7 +99,6 @@ export const ProductProvider = ({ children }) => {
     let subTotal = 0
 
     cart.map(item => subTotal += item.total)
-    console.log('user-cart', cart)
 
     const tax = parseFloat((subTotal * 0.2).toFixed(2))
     const total = subTotal + tax
@@ -121,7 +109,7 @@ export const ProductProvider = ({ children }) => {
   }
 
   return (
-    <ProductContext.Provider value={{ products, addToCart, getItem, openModal, closeModal, showModal, modalProduct, incrementCartItemQuantity, decrementCartItemQuantity, removeCartItem, clearCart, cart, cartSubTotal, cartTotal, cartTax }}>
+    <ProductContext.Provider value={{ products, addToCart, getItem, openModal, showModal, incrementCartItemQuantity, decrementCartItemQuantity, removeCartItem, clearCart, cart, cartSubTotal, cartTotal, cartTax }}>
       { children }
     </ProductContext.Provider>
   )
