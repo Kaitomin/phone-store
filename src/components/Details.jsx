@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useProduct } from '../context/ProductContext'
 import { Link, useParams } from 'react-router-dom'
 
@@ -8,7 +8,7 @@ const Details = () => {
 
   const params = useParams()
   const { getItem, addToCart, openModal } = useProduct()
-  const { id, company, img, info, price, title, inCart } = getItem(+params.id)
+  const { id, company, img, info, price, title } = getItem(+params.id)
 
   const decrementQuantity = () => {
     if (quantity <= 1) return
@@ -35,11 +35,11 @@ const Details = () => {
   }
 
   return (
-    <div className='details container py-5'>
+    <div className='details container-lg py-5'>
       <div className='row'>
         <div className='col-10 mx-auto col-md-6 my-3 d-flex justify-content-center align-items-center flex-column gap-5'>
           <img src={`../${img}`} alt={title} className='main-img' width='400' height='auto' />
-          <div className='thumbnails d-flex col-12 justify-content-evenly'>
+          <div className='thumbnails d-flex col-12 flex-wrap justify-content-evenly'>
             <img src='/img/product-3.png' alt='thumbnail' className='thumbnail border border-gray border-dark' width='100' height='auto' onClick={assignThumbnail} />
             <img src='/img/product-5.png' alt='thumbnail' className='thumbnail border border-gray' width='100' height='auto' onClick={assignThumbnail} />
             <img src='/img/product-4.png' alt='thumbnail' className='thumbnail border border-gray' width='100' height='auto' onClick={assignThumbnail} />

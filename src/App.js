@@ -1,11 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
 import { Navbar, ProductList, Details, Cart, Default, Modal, Contact } from './components'
-import { Routes, Route, Link } from 'react-router-dom'
-import { ProductContext } from './context/ProductContext'
-import { storeProducts, detailProduct } from './data'
+import { Routes, Route } from 'react-router-dom'
 import { ProductProvider } from './context/ProductContext'
-
 
 function App() {
   return (

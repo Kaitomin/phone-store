@@ -19,9 +19,9 @@ const CartTotal = () => {
                 <i className="fa-solid fa-rectangle-xmark"></i> Clear cart
               </button>
             </Link>
-            <h5><span className='text-title'>Subtotal: <strong>{cartSubTotal}€</strong></span></h5>
-            <h5><span className='text-title'>Tax: <strong>{cartTax}€</strong></span></h5>
-            <h5><span className='text-title'>Total: <strong>{cartTotal}€</strong></span></h5>
+            <h5><span className='text-title'>Subtotal <i className="fa-solid fa-caret-right"></i><strong> {cartSubTotal}€</strong></span></h5>
+            <h5><span className='text-title'>Tax <i className="fa-solid fa-caret-right"></i><strong> {cartTax}€</strong></span></h5>
+            <h5><span className='text-title'>Total <i className="fa-solid fa-caret-right"></i><strong> {cartTotal}€</strong></span></h5>
           </div>
         </div>
       </div>

@@ -10,7 +10,7 @@ const Cart = () => {
   return (
     cart.length <= 0 ? 
     <EmptyCart /> :
-    <div className='container cart-container'>
+    <div className='container-lg cart-container'>
       <Title name='Your' title='cart' />
       <CartColumns />
       <CartList cart={cart} />
