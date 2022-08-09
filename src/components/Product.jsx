@@ -4,18 +4,18 @@ import PropTypes from 'prop-types';
 import { useProduct } from '../context/ProductContext'
 
 const Product = (product) => {
-  const { id, title, img, price, inCart } = product
-  const { addToCart, openModal } = useProduct()
+  const { id, title, img, price } = product
+  const { addToCart, openModal, debounce } = useProduct()
 
   return (
-    <div className='product-container col-9 col-md-4 col-lg-2 my-3'>
+    <div className='product-container col-9 col-md-4 col-lg-3 my-3'>
       <div className="card item-card">
 
         <div className="img-container p-3 position-relative overflow-hidden">
           <img src={img} alt='product' className='card-img-top' />
           <div className='product-overlay'>
           <Link to={`/details/${id}`}><i className="fa-solid fa-magnifying-glass"></i>View</Link>
-          <button onClick={() => {addToCart(id); openModal()}}>
+          <button onClick={debounce(() => {addToCart(id); openModal()})}>
             <i className="fa-solid fa-cart-plus"></i>Add
           </button>
           </div>

@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
-import { Navbar, ProductList, Details, Cart, Default, Modal, Contact } from './components'
+import { Navbar, ProductList, Details, Cart, Default, Modal, Contact, BackToTop } from './components'
 import { Routes, Route } from 'react-router-dom'
 import { ProductProvider } from './context/ProductContext'
 
@@ -17,6 +17,7 @@ function App() {
           <Route path='/*' element={<Default />} />
         </Routes>
         <Modal />
+        <BackToTop />
       </ProductProvider>
     </>
   );

@@ -11,7 +11,7 @@ const ProductList = () => {
       <div className='py-5'>
         <div className="container">
           <Title name='Our' title='products' />
-          <div className="row">
+          <div className="row justify-content-center">
             { 
               productsList.products.map(product => <Product key={product.id} {...product} />)
             }

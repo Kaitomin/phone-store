@@ -201,3 +201,26 @@ body {
 .cart-container .fa-trash {
   font-size: 1.5rem;
 }
+/* Contact */
+.contact .send-btn {
+  transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+.contact .send-btn:hover {
+  background: black!important;
+  color: white!important;
+}
+/* Back to top btn */
+.top-btn {
+  background: white;
+  border: 1px solid black;
+  color: black;
+  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 20px;
+  right: 15px;
+}

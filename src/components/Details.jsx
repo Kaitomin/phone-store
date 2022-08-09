@@ -7,7 +7,7 @@ const Details = () => {
   const [quantity, setQuantity] = useState(1)
 
   const params = useParams()
-  const { getItem, addToCart, openModal } = useProduct()
+  const { getItem, debounce, addToCart, openModal } = useProduct()
   const { id, company, img, info, price, title } = getItem(+params.id)
 
   const decrementQuantity = () => {
@@ -31,14 +31,21 @@ const Details = () => {
       if (thumbnail.src === e.target.src) thumbnail.classList.add('border-dark')
       else thumbnail.classList.remove('border-dark')
     })
-
   }
+  // const debounce = (cb, delay = 1000) => {
+  //   let timer
+
+  //   return () => {
+  //     clearTimeout(timer)
+  //     timer = setTimeout(() => cb(), delay)
+  //   }
+  // }
 
   return (
-    <div className='details container-lg py-5'>
+    <div className='details container py-5 px-0'>
       <div className='row'>
         <div className='col-10 mx-auto col-md-6 my-3 d-flex justify-content-center align-items-center flex-column gap-5'>
-          <img src={`../${img}`} alt={title} className='main-img' width='400' height='auto' />
+          <img src={`../${img}`} alt={title} className='main-img' width='100%' height='auto' style={{maxWidth: 400 + 'px'}} />
           <div className='thumbnails d-flex col-12 flex-wrap justify-content-evenly'>
             <img src='/img/product-3.png' alt='thumbnail' className='thumbnail border border-gray border-dark' width='100' height='auto' onClick={assignThumbnail} />
             <img src='/img/product-5.png' alt='thumbnail' className='thumbnail border border-gray' width='100' height='auto' onClick={assignThumbnail} />
@@ -64,9 +71,10 @@ const Details = () => {
               <button onClick={incrementQuantity}>+</button>
             </div>
           </div>
-          <div className='actions d-flex gap-5'>
+          <div className='actions d-flex justify-content-between gap-5'>
             <Link to='/'><i className="fa-solid fa-circle-arrow-left"></i> Back to products</Link>
-            <button onClick={() => {addToCart(id, quantity);openModal()}}>
+            {/* <button onClick={() => {addToCart(id, quantity);openModal()}}> */}
+            <button onClick={debounce(() => {addToCart(id, quantity);openModal()})}>
               <span><i className="fa-solid fa-cart-plus"></i> Add to cart</span>
             </button>
 

@@ -43,7 +43,7 @@ export const ProductProvider = ({ children }) => {
 
     setTimeout(() => {
       setShowModal(false)
-    }, 2000)
+    }, 1000)
   }
   const incrementCartItemQuantity = id => {
     let tmpCart = [...cart]
@@ -107,9 +107,17 @@ export const ProductProvider = ({ children }) => {
     setCartTax(tax)
     setCartTotal(total)
   }
+  const debounce = (cb, delay = 1000) => {
+    let timer
+
+    return () => {
+      clearTimeout(timer)
+      timer = setTimeout(() => cb(), delay)
+    }
+  }
 
   return (
-    <ProductContext.Provider value={{ products, addToCart, getItem, openModal, showModal, incrementCartItemQuantity, decrementCartItemQuantity, removeCartItem, clearCart, cart, cartSubTotal, cartTotal, cartTax }}>
+    <ProductContext.Provider value={{ products, addToCart, getItem, openModal, showModal, incrementCartItemQuantity, decrementCartItemQuantity, removeCartItem, clearCart, cart, cartSubTotal, cartTotal, cartTax, debounce }}>
       { children }
     </ProductContext.Provider>
   )
