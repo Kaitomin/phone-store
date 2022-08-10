@@ -32,14 +32,6 @@ const Details = () => {
       else thumbnail.classList.remove('border-dark')
     })
   }
-  // const debounce = (cb, delay = 1000) => {
-  //   let timer
-
-  //   return () => {
-  //     clearTimeout(timer)
-  //     timer = setTimeout(() => cb(), delay)
-  //   }
-  // }
 
   return (
     <div className='details container py-5 px-0'>

@@ -9,6 +9,7 @@ function App() {
     <>
       <ProductProvider> 
         <Navbar />
+        <Modal />
         <Routes>
           <Route path='/' element={<ProductList />} />
           <Route path='/details/:id' element={<Details />} />
@@ -16,7 +17,7 @@ function App() {
           <Route path='/contact' element={<Contact />} />
           <Route path='/*' element={<Default />} />
         </Routes>
-        <Modal />
+        
         <BackToTop />
       </ProductProvider>
     </>
