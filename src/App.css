@@ -22,17 +22,11 @@ body {
   color: var(--lightBlue);
 }
 /* Nav */
-#navbar {
-  background: black;
-}
-#navbar .cart-btn {
-  background: none;
-  border: 1px solid black;
-}
-#navbar ul a {
+.navbar ul a {
   font-size: 1.2em;
+  color: white;
 }
-#navbar .cart {
+.navbar .cart {
   border-radius: 100px;
   width: 50px;
   height: 50px;
@@ -40,7 +34,7 @@ body {
   color: white;
   border: 1px solid white;
 }
-#navbar .fa-circle {
+.navbar .fa-circle {
   font-size: 0.5rem;
 }
 /* Modal */
@@ -228,4 +222,8 @@ body {
   position: fixed;
   bottom: 20px;
   right: 15px;
+}
+.top-btn,
+.secondary-cart-btn {
+  z-index: 999;
 }

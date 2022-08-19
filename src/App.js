@@ -17,7 +17,6 @@ function App() {
           <Route path='/contact' element={<Contact />} />
           <Route path='/*' element={<Default />} />
         </Routes>
-        
         <BackToTop />
       </ProductProvider>
     </>
